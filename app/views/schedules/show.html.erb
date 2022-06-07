@@ -1,0 +1,39 @@
+<%= render "shared/header" %>
+
+<h3>スケジュール詳細</h3>
+
+<table>
+    <tr>
+        <th>タイトル</th>
+        <td><%= @schedule.title %></td>
+    </tr>
+    <tr>
+        <th>開始日</th>
+        <td><%= @schedule.start_date %></td>
+    </tr>
+    <tr>
+        <th>終了日</th>
+        <td><%= @schedule.end_date %></td>
+    </tr>
+    <tr>
+        <th>終日</th>
+        <td>
+            <%if @schedule.all_day %>
+            <% end %>
+        </td>
+    </tr>
+    <tr>
+        <th>スケジュールメモ</th>
+        <td><%= @schedule.memo %></td>
+    </tr>
+</table>
+
+<div>
+    <ul>
+        <li><%= link_to "スケジュール一覧に戻る", :schedules %></li>
+        <li><%= link_to "このスケジュールを編集", [:edit, @schedule] %></li>
+        <li><%= link_to "このスケジュールを削除する", @schedule, data: {turbo_method: :delete, turbo_confirm: "本当に削除しますか？" }%></li>
+    </ul>
+</div>
+
+<%= render "shared/footer" %>
